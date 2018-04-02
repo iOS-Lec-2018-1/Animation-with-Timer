@@ -9,17 +9,34 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var counter = 1
+    var myTimer = Timer()
 
+    @IBOutlet weak var myImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 
+    @IBAction func play(_ sender: Any) {
+         myTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(doAnimation), userInfo: nil, repeats: true)
+    }
+    
+    @IBAction func stop(_ sender: Any) {
+        myTimer.invalidate()
+    }
+    
+    @objc func doAnimation() {
+        if counter == 5 {
+            counter = 1
+        } else {
+            counter = counter + 1
+        }
+        
+        myImageView.image = UIImage(named: "frame\(counter).png")
+    }
+    
 }
 
