@@ -14,9 +14,11 @@ class ViewController: UIViewController {
     var myTimer = Timer()
 
     @IBOutlet weak var myImageView: UIImageView!
+    @IBOutlet weak var imageCounter: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageCounter.text = "1"
     }
 
 
@@ -36,6 +38,7 @@ class ViewController: UIViewController {
         }
         
         myImageView.image = UIImage(named: "frame\(counter).png")
+        imageCounter.text = String(counter)
     }
     
 }
