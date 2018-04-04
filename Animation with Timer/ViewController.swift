@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     var counter = 1
+    // Timer 객체 생성
     var myTimer = Timer()
 
     @IBOutlet weak var myImageView: UIImageView!
@@ -23,13 +24,16 @@ class ViewController: UIViewController {
 
 
     @IBAction func play(_ sender: Any) {
+        // Timer 실행
          myTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(doAnimation), userInfo: nil, repeats: true)
     }
     
     @IBAction func stop(_ sender: Any) {
+        // Timer를 중지 
         myTimer.invalidate()
     }
     
+    // Timer에 의해 동적으로 호출되는 함수
     @objc func doAnimation() {
         if counter == 5 {
             counter = 1
