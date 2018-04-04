@@ -18,12 +18,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageCounter.text = "1"
+        imageCounter.text = String(counter)
     }
 
 
     @IBAction func play(_ sender: Any) {
-         myTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(doAnimation), userInfo: nil, repeats: true)
+         myTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(doAnimation), userInfo: nil, repeats: true)
     }
     
     @IBAction func stop(_ sender: Any) {
@@ -40,6 +40,5 @@ class ViewController: UIViewController {
         myImageView.image = UIImage(named: "frame\(counter).png")
         imageCounter.text = String(counter)
     }
-    
 }
 
