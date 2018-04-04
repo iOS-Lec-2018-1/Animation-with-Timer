@@ -9,8 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
     var counter = 1
+    var isAnimating = false
     // Timer 객체 생성
     var myTimer = Timer()
 
@@ -22,14 +22,20 @@ class ViewController: UIViewController {
         imageCounter.text = String(counter)
     }
 
-
     @IBAction func play(_ sender: Any) {
-        // Timer 실행
-         myTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(doAnimation), userInfo: nil, repeats: true)
+        
+        if isAnimating == false {
+            // Timer 실행
+             myTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(doAnimation), userInfo: nil, repeats: true)
+            isAnimating = true
+        } else {
+            myTimer.invalidate()
+            isAnimating = false
+        }
     }
     
     @IBAction func stop(_ sender: Any) {
-        // Timer를 중지 
+        // Timer를 중지
         myTimer.invalidate()
     }
     
@@ -40,7 +46,6 @@ class ViewController: UIViewController {
         } else {
             counter = counter + 1
         }
-        
         myImageView.image = UIImage(named: "frame\(counter).png")
         imageCounter.text = String(counter)
     }
