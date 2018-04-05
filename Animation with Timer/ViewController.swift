@@ -1,11 +1,8 @@
 //
 //  ViewController.swift
 //  Animation with Timer
-//
 //  Created by 김종현 on 2018. 4. 2..
 //  Copyright © 2018년 김종현. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -22,10 +19,9 @@ class ViewController: UIViewController {
         imageCounter.text = String(counter)
     }
 
-
     @IBAction func play(_ sender: Any) {
         // Timer 실행
-         myTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(doAnimation), userInfo: nil, repeats: true)
+       myTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.doAnimation), userInfo: nil, repeats: true)
     }
     
     @IBAction func stop(_ sender: Any) {
