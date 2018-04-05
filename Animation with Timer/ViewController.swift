@@ -34,11 +34,6 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func stop(_ sender: Any) {
-        // Timer를 중지
-        myTimer.invalidate()
-    }
-    
     // Timer에 의해 동적으로 호출되는 함수
     @objc func doAnimation() {
         if counter == 5 {
