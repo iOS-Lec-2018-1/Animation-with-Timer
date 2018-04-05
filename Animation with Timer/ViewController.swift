@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     var isAnimating = false
     // Timer 객체 생성
     var myTimer = Timer()
+    // var myTimer: Timer!
 
     @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet weak var imageCounter: UILabel!
